@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ArubaBeachFood.com – Preview</title>
+<style>
+:root{--primary:#087F91;--pd:#075B68;--pl:#E9F7F5;--navy:#12343D;--sand:#FFF8EC;--coral:#FF8264;--bg:#F8FBFA;--card:#fff;--text:#17343A;--mut:#71858A;--bd:#E3ECEA;--ok:#16865B;--warn:#D99535;--bad:#D94C4C;--sh:0 8px 30px rgba(18,52,61,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--pl:#12353b;--bg:#0e1d21;--card:#162a2f;--text:#e6f0f1;--mut:#8fa6ab;--bd:#254046;--sand:#2a2a22;--sh:0 8px 30px rgba(0,0,0,.3)}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Manrope,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:14px;padding:12px 5%;flex-wrap:wrap}
+.logo{font-weight:900;font-size:21px;cursor:pointer;color:var(--navy)}.logo b{color:var(--primary)}
+@media(prefers-color-scheme:dark){.logo{color:#fff}}
+nav{display:flex;gap:4px;flex:1;overflow-x:auto}nav a{padding:8px 12px;border-radius:20px;color:var(--mut);text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap;cursor:pointer}nav a.on,nav a:hover{background:var(--pl);color:var(--primary)}
+.btn{border:0;border-radius:24px;padding:11px 20px;font-weight:700;cursor:pointer;font-size:15px;background:var(--primary);color:#fff}.btn:hover{background:var(--pd)}.btn.alt{background:var(--pl);color:var(--primary)}.btn.co{background:var(--coral)}.btn.sm{padding:7px 13px;font-size:13px}.btn[disabled]{opacity:.45;cursor:not-allowed}
+main{max-width:1150px;margin:auto;padding:0 5% 60px}
+.hero{margin:20px -5vw 0;padding:70px 6%;background:linear-gradient(120deg,#087F91,#16B8A5 60%,#FFC79A);color:#fff;border-radius:0 0 28px 28px}
+.hero h1{font-size:clamp(34px,6vw,62px);line-height:1.05;margin:0 0 14px;max-width:640px}.hero p{max-width:520px;font-size:18px;margin:0 0 24px}
+h2{font-size:26px;margin:34px 0 6px}.mut{color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px;box-shadow:var(--sh)}
+.beach{cursor:pointer;text-align:left;font:inherit;color:inherit;transition:.15s}.beach:hover{transform:translateY(-3px)}.beach.sel{border:2px solid var(--primary);background:var(--pl)}.beach.off{opacity:.45}
+.ph{height:90px;border-radius:12px;display:grid;place-items:center;font-size:42px;background:linear-gradient(135deg,var(--pl),var(--sand));margin-bottom:10px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:12px;background:var(--pl);color:var(--primary)}.tag.w{background:#fff3d9;color:#946500}.tag.g{background:#e2f5ec;color:var(--ok)}.tag.r{background:#fce8e8;color:var(--bad)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.chip{border:1px solid var(--bd);background:var(--card);color:var(--text);border-radius:20px;padding:7px 14px;cursor:pointer;font-size:14px;font-weight:600}.chip.sel{background:var(--primary);color:#fff;border-color:var(--primary)}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;font:inherit;background:var(--card);color:var(--text);margin:5px 0 12px}
+label{font-size:13px;font-weight:700}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.col2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}@media(max-width:640px){.col2{grid-template-columns:1fr}}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:start}@media(max-width:800px){.two{grid-template-columns:1fr}}
+.price{font-weight:800;color:var(--primary)}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}.step{flex:1;min-width:110px;text-align:center;padding:10px 4px;border-radius:12px;background:var(--card);border:1px solid var(--bd);font-size:12px;font-weight:700;color:var(--mut)}.step.done{background:var(--primary);color:#fff;border-color:var(--primary)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--bd)}th{color:var(--mut)}.tw{overflow-x:auto}
+.stat{font-size:28px;font-weight:800;margin:6px 0 0}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;place-items:center;z-index:50;padding:16px}.modal.on{display:grid}.modal .card{max-width:440px;width:100%;max-height:88vh;overflow:auto}
+.note{background:#fff3d9;color:#6b4a00;border-radius:12px;padding:10px 14px;font-size:13px;margin:14px 0}
+footer{background:var(--navy);color:#fff;padding:26px 5%;text-align:center;font-size:14px}
+.empty{text-align:center;padding:36px;color:var(--mut)}
+</style>
+</head>
+<body>
+<header>
+<div class="logo" onclick="go('home')">Aruba<b>BeachFood</b></div>
+<nav id="nav"></nav>
+<button class="btn co sm" onclick="go('checkout')">🛒 Cart <span id="cc">0</span></button>
+</header>
+<main id="app"></main>
+<footer>ArubaBeachFood.com · Your beach day. Food delivered.<br><small>Preview build · sample restaurants and menus · no real payments or deliveries</small></footer>
+<div class="modal" id="modal"><div class="card" id="mbody"></div></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $$=c=>'$'+(c/100).toFixed(2);
+const BEACHES=['Palm Beach','Eagle Beach','Baby Beach','Arashi Beach','Tres Trapi','Boca Catalina','Malmok Beach','Hadicurari Beach','Manchebo Beach','Rodgers Beach','Surfside Beach','Druif Beach'].map((n,i)=>({id:i,n,on:true}));
+const OPT={burger:[['Double patty',300],['Add cheese',100],['Extra bacon',150],['No onions',0]],drink:[['Large size',100],['Extra ice',0],['No ice',0]],none:[]};
+const mk=(n,d,p,e,o)=>({n,d,p,e,o:OPT[o||'none'],av:true});
+const REST=[
+{id:'r1',n:'Sample Grill House',c:'Burgers',e:'🍔',t:'25–35 min',fee:300,min:1000,st:'active',bs:[0,1,4,6,10],items:[mk('Chicken Burger','Grilled chicken burger',1200,'🍔','burger'),mk('Cheeseburger','Classic cheeseburger',1300,'🍔','burger'),mk('French Fries','Crispy golden fries',500,'🍟'),mk('Fresh Juice','Refreshing fruit juice',600,'🧃','drink')]},
+{id:'r2',n:'Sample Seafood Shack',c:'Seafood',e:'🐟',t:'30–45 min',fee:400,min:1500,st:'active',bs:[0,1,2,3,7,8],items:[mk('Fish Sandwich','Fresh fish sandwich',1500,'🥪'),mk('Caesar Salad','Fresh Caesar salad',1100,'🥗'),mk('Water','Bottled water',300,'💧')]},
+{id:'r3',n:'Sample Wrap Café',c:'Healthy',e:'🌯',t:'20–30 min',fee:250,min:800,st:'active',bs:[1,2,5,6,9,11],items:[mk('Chicken Wrap','Chicken and fresh vegetables',1200,'🌯'),mk('Caesar Salad','Fresh Caesar salad',1100,'🥗'),mk('Fresh Juice','Refreshing fruit juice',600,'🧃','drink')]},
+{id:'r4',n:'Sample Island Kitchen',c:'Caribbean',e:'🍛',t:'35–50 min',fee:450,min:1800,st:'pending',bs:[0,3,8],items:[mk('Chicken Wrap','Sample item',1200,'🌯')]}
+];
+const FLOW=['Order received','Accepted','Preparing','Ready','Dispatched','Delivered'];
+const S={beach:null,cuisine:'All',q:'',rid:null,cart:[],orders:[],cur:null,comm:{type:'fixed',val:0},n:1000};
+try{const c=JSON.parse(localStorage.getItem('abf-cart')||'null');if(c){S.cart=c.cart||[];S.rid=c.rid||null}}catch(e){}
+const save=()=>{try{localStorage.setItem('abf-cart',JSON.stringify({cart:S.cart,rid:S.rid}))}catch(e){}};
+const R=id=>REST.find(r=>r.id===id);
+const go=v=>{location.hash=v};
+const cartSub=()=>S.cart.reduce((a,l)=>a+l.price*l.qty,0);
+
+const TABS=[['home','Home'],['restaurants','Order Food'],['track','Track My Order'],['portal','Restaurant Portal'],['admin','Owner Admin']];
+const V={};
+
+V.home=()=>`<div class="hero"><h1>Your Beach Day. Food Delivered.</h1><p>Order from local restaurants and have your meal brought to your umbrella, hotel or villa anywhere in Aruba.</p><button class="btn co" onclick="go('restaurants')">Order Food Now</button></div>
+<h2>Where are you enjoying Aruba today?</h2><p class="mut">Choose your beach to see who can deliver to you.</p>
+<div class="grid">${BEACHES.map(b=>`<button class="card beach ${S.beach===b.id?'sel':''} ${b.on?'':'off'}" ${b.on?'':'disabled'} onclick="pickBeach(${b.id})"><div class="ph">🏖️</div><b>${b.n}</b><br><small class="mut">${b.on?'Select beach':'Unavailable'}</small></button>`).join('')}</div>
+<h2>How it works</h2><div class="grid">${[['🏖️','Pick your spot','Beach, hotel, rental or home.'],['🍽️','Choose a restaurant','Only restaurants that deliver to you.'],['🛒','Customize & order','Pay by card (once connected) or cash.'],['🛵','Track delivery','Follow every status step.']].map(x=>`<div class="card"><div class="ph">${x[0]}</div><b>${x[1]}</b><p class="mut">${x[2]}</p></div>`).join('')}</div>
+<div class="note">Preview mode: restaurants and menu items are sample data. Delivery coverage per beach must be confirmed before activation.</div>`;
+
+V.restaurants=()=>{
+const cu=['All',...new Set(REST.map(r=>r.c))];
+const list=REST.filter(r=>r.st==='active'&&(S.beach===null||r.bs.includes(S.beach))&&(S.cuisine==='All'||r.c===S.cuisine)&&(r.n+r.c+r.items.map(i=>i.n).join(' ')).toLowerCase().includes(S.q.toLowerCase()));
+return `<h2>Restaurants</h2>
+<div class="chips">${BEACHES.filter(b=>b.on).map(b=>`<button class="chip ${S.beach===b.id?'sel':''}" onclick="pickBeach(${b.id},1)">${b.n}</button>`).join('')}${S.beach!==null?`<button class="chip" onclick="S.beach=null;render()">✕ Clear beach</button>`:''}</div>
+<input id="q" placeholder="Search restaurants or dishes…" value="${esc(S.q)}" oninput="S.q=this.value;render(1)">
+<div class="chips">${cu.map(c=>`<button class="chip ${S.cuisine===c?'sel':''}" onclick="S.cuisine='${c}';render()">${c}</button>`).join('')}</div>
+${S.beach===null?'<p class="mut">Select a beach to see only restaurants that deliver there.</p>':''}
+<div class="grid">${list.map(r=>`<div class="card beach" onclick="openRest('${r.id}')"><div class="ph">${r.e}</div><b>${r.n}</b><div class="row"><span class="tag">${r.c}</span><span class="tag g">Open</span></div><p class="mut" style="margin:8px 0 0">⏱ ${r.t} · Delivery ${$$(r.fee)} · Min ${$$(r.min)}</p></div>`).join('')||'<div class="empty">No restaurants deliver to this selection yet.</div>'}</div>`};
+
+V.menu=()=>{const r=R(S.rid);if(!r)return V.restaurants();
+return `<h2>${r.e} ${r.n}</h2><p class="mut">${r.c} · ⏱ ${r.t} · Delivery ${$$(r.fee)} · Minimum ${$$(r.min)}</p><button class="btn alt sm" onclick="go('restaurants')">← All restaurants</button>
+<div class="grid">${r.items.map((it,i)=>`<div class="card"><div class="ph">${it.e}</div><b>${it.n}</b><p class="mut" style="margin:2px 0 8px">${it.d}</p><div class="row"><span class="price">${$$(it.p)}</span>${it.av?`<button class="btn sm" onclick="custom('${r.id}',${i})">Add</button>`:'<span class="tag r">Sold out</span>'}</div></div>`).join('')}</div>
+<div class="note">Sample menu data. Final prices will be validated by the backend.</div>`};
+
+V.checkout=()=>{
+if(!S.cart.length)return `<h2>Your cart</h2><div class="empty">Your cart is empty.<br><br><button class="btn" onclick="go('restaurants')">Browse restaurants</button></div>`;
+const r=R(S.rid),sub=cartSub(),tot=sub+r.fee,b=S.beach!==null?BEACHES[S.beach].n:'';
+return `<h2>Checkout · ${r.n}</h2><div class="two"><div class="card">
+<label>Delivery type</label><select id="dt"><option value="beach">Beach</option><option value="hotel">Hotel / resort</option><option value="home">Home / vacation rental</option><option value="pickup">Pickup</option></select>
+<label>Beach</label><select id="cb">${BEACHES.filter(x=>x.on&&r.bs.includes(x.id)).map(x=>`<option ${S.beach===x.id?'selected':''}>${x.n}</option>`).join('')}</select>
+<div class="col2"><div><label>Your name *</label><input id="cn"></div><div><label>Phone *</label><input id="cp" placeholder="+297"></div></div>
+<label>Hotel, beach bar or landmark *</label><input id="cl" placeholder="Example: Marriott Resort">
+<div class="col2"><div><label>Umbrella / chair / room no.</label><input id="cu"></div><div><label>Email</label><input id="ce" type="email"></div></div>
+<label>Delivery instructions</label><textarea id="ci" rows="2"></textarea>
+<label>Payment</label><select id="cm"><option value="cash">Cash on delivery (unpaid until collected)</option><option value="card" disabled>Card – not connected (provider pending)</option></select>
+<div id="err" style="color:var(--bad);font-size:13px;margin-bottom:8px"></div><button class="btn" onclick="placeOrder()">Place Order</button></div>
+<div class="card"><b>Order summary</b>${S.cart.map((l,i)=>`<div class="row" style="margin-top:10px"><div>${l.qty}× ${esc(l.n)}<br><small class="mut">${esc(l.opts.join(', '))}${l.note?' · '+esc(l.note):''}</small></div><div>${$$(l.price*l.qty)}<br><button class="chip" onclick="rm(${i})">remove</button></div></div>`).join('')}<hr style="border:0;border-top:1px solid var(--bd)">
+<div class="row"><span>Subtotal</span><span>${$$(sub)}</span></div><div class="row"><span>Delivery</span><span>${$$(r.fee)}</span></div><div class="row"><b>Total</b><b class="price">${$$(tot)}</b></div>
+${sub<r.min?`<p style="color:var(--bad);font-size:13px">Minimum order is ${$$(r.min)}.</p>`:''}<button class="btn alt sm" onclick="S.cart=[];S.rid=null;save();render()">Clear cart</button></div></div>`};
+
+V.track=()=>{const o=S.cur;if(!o)return `<h2>Track My Order</h2><div class="empty">No order yet. Place an order to see live status here.</div>`;
+const i=FLOW.indexOf(o.status);
+return `<h2>Order ${o.num}</h2><p class="mut">${esc(R(o.rid).n)} · ${esc(o.beach)} · ${esc(o.loc)}</p>
+<div class="steps">${FLOW.map((s,k)=>`<div class="step ${k<=i?'done':''}">${s}</div>`).join('')}</div>
+<div class="card"><p><b>Payment:</b> Cash · <span class="tag w">${o.paid?'Paid':'Unpaid'}</span></p><p><b>Total:</b> ${$$(o.total)}</p><p class="mut">No delivery estimate is shown until a partner is assigned. The restaurant updates these steps from its portal.</p><button class="btn alt sm" onclick="render()">Refresh status</button></div>`};
+
+V.portal=()=>{const r=R(S.prid||'r1');const os=S.orders.filter(o=>o.rid===r.id);
+return `<h2>Restaurant Portal</h2><div class="note">Preview: no login yet. In production each restaurant signs in and sees only its own data.</div>
+<select onchange="S.prid=this.value;render()">${REST.filter(x=>x.st==='active').map(x=>`<option value="${x.id}" ${x.id===r.id?'selected':''}>${x.n}</option>`).join('')}</select>
+<div class="grid"><div class="card">New orders<div class="stat">${os.filter(o=>o.status==='Order received').length}</div></div><div class="card">In progress<div class="stat">${os.filter(o=>['Accepted','Preparing','Ready','Dispatched'].includes(o.status)).length}</div></div><div class="card">Delivered<div class="stat">${os.filter(o=>o.status==='Delivered').length}</div></div><div class="card">Sales<div class="stat">${$$(os.filter(o=>o.status==='Delivered').reduce((a,o)=>a+o.sub,0))}</div></div></div>
+<h2>Incoming orders</h2><div class="card tw"><table><tr><th>Order</th><th>Items</th><th>Beach</th><th>Status</th><th></th></tr>${os.map(o=>`<tr><td>${o.num}</td><td>${o.items}</td><td>${esc(o.beach)}</td><td><span class="tag">${o.status}</span></td><td>${o.status!=='Delivered'?`<button class="btn sm" onclick="adv(${o.id})">${o.status==='Order received'?'Accept':'→ '+FLOW[FLOW.indexOf(o.status)+1]}</button>`:''}</td></tr>`).join('')||'<tr><td colspan=5 class="empty">No orders yet.</td></tr>'}</table></div>
+<h2>Menu availability</h2><div class="card">${r.items.map((it,i)=>`<div class="row" style="padding:6px 0"><span>${it.e} ${it.n} · ${$$(it.p)}</span><button class="btn sm ${it.av?'':'alt'}" onclick="R('${r.id}').items[${i}].av=!R('${r.id}').items[${i}].av;render()">${it.av?'Available':'Sold out'}</button></div>`).join('')}</div>`};
+
+V.admin=()=>{const os=S.orders,done=os.filter(o=>o.status==='Delivered');const gross=done.reduce((a,o)=>a+o.total,0);
+const com=done.reduce((a,o)=>a+(S.comm.type==='fixed'?Math.round(S.comm.val*100):Math.round(o.sub*S.comm.val/100)),0);
+return `<h2>Owner Admin</h2><div class="note">Preview: no login yet. Figures below come only from orders placed in this session — nothing is pre-filled.</div>
+<div class="grid"><div class="card">Orders<div class="stat">${os.length}</div></div><div class="card">Pending<div class="stat">${os.filter(o=>o.status==='Order received').length}</div></div><div class="card">Completed<div class="stat">${done.length}</div></div><div class="card">Gross (completed)<div class="stat">${$$(gross)}</div></div><div class="card">Est. commission<div class="stat">${$$(com)}</div></div><div class="card">Active restaurants<div class="stat">${REST.filter(r=>r.st==='active').length}</div></div></div>
+<h2>Orders</h2><div class="card tw"><table><tr><th>Order</th><th>Restaurant</th><th>Customer</th><th>Beach</th><th>Total</th><th>Payment</th><th>Status</th></tr>${os.map(o=>`<tr><td>${o.num}</td><td>${esc(R(o.rid).n)}</td><td>${esc(o.name)}</td><td>${esc(o.beach)}</td><td>${$$(o.total)}</td><td>Cash · unpaid</td><td>${o.status}</td></tr>`).join('')||'<tr><td colspan=7 class="empty">No orders yet.</td></tr>'}</table></div>
+<h2>Restaurants</h2><div class="card">${REST.map(r=>`<div class="row" style="padding:6px 0"><span>${r.e} ${r.n} <span class="tag ${r.st==='active'?'g':'w'}">${r.st}</span></span><button class="btn sm alt" onclick="R('${r.id}').st=R('${r.id}').st==='active'?'pending':'active';render()">${r.st==='active'?'Suspend':'Approve'}</button></div>`).join('')}</div>
+<h2>Beach locations</h2><div class="chips">${BEACHES.map(b=>`<button class="chip ${b.on?'sel':''}" onclick="BEACHES[${b.id}].on=!BEACHES[${b.id}].on;render()">${b.n}</button>`).join('')}</div><p class="mut">Click to enable or disable a beach. Coverage must be confirmed with the delivery partner.</p>
+<h2>Commission rule</h2><div class="card"><div class="col2"><div><label>Type</label><select onchange="S.comm.type=this.value;render()"><option value="fixed" ${S.comm.type==='fixed'?'selected':''}>Fixed per completed order ($)</option><option value="pct" ${S.comm.type==='pct'?'selected':''}>Percentage of subtotal (%)</option></select></div><div><label>Value</label><input type="number" min="0" step="0.01" value="${S.comm.val}" onchange="S.comm.val=Math.max(0,+this.value||0);render()"></div></div><p class="mut">Starts at 0. Enter the real agreed terms; no rate is assumed.</p></div>
+<h2>Integration status</h2><div class="card">${[['VapVap Eats delivery','Awaiting API documentation & credentials','w'],['Card payments','Provider eligibility for Aruba not verified','w'],['Cash payments','Enabled (unpaid until collected)','g'],['Email notifications','Not configured','w'],['AI assistant','Not configured','w']].map(x=>`<div class="row" style="padding:6px 0"><span>${x[0]}</span><span class="tag ${x[2]}">${x[1]}</span></div>`).join('')}</div>`};
+
+function render(keep){const v=(location.hash||'#home').slice(1);const f=V[v]||V.home;
+const pos=keep&&document.activeElement&&document.activeElement.id==='q'?document.activeElement.selectionStart:null;
+$('app').innerHTML=f();
+$('nav').innerHTML=TABS.map(t=>`<a class="${v===t[0]||(v==='menu'&&t[0]==='restaurants')||(v==='checkout'&&t[0]==='restaurants')?'on':''}" onclick="go('${t[0]}')">${t[1]}</a>`).join('');
+$('cc').textContent=S.cart.reduce((a,l)=>a+l.qty,0);
+if(pos!==null){const q=$('q');q.focus();q.setSelectionRange(pos,pos)}}
+window.addEventListener('hashchange',()=>{render();scrollTo(0,0)});
+
+function pickBeach(i,stay){S.beach=i;if(stay)render();else go('restaurants')}
+function openRest(id){S.rid===id||!S.cart.length?0:0;S.view=id;S.browse=id;go('menu');S.mrid=id;S.rid_menu=id;S.rid=S.cart.length?S.rid:id;S.menuFor=id;render()}
+// menu renders restaurant being browsed
+const _menu=V.menu;V.menu=()=>{const keep=S.rid;S.rid=S.menuFor||S.rid;const h=_menu();S.rid=keep;return h};
+
+function custom(rid,i){const r=R(rid),it=r.items[i];
+window._c={rid,i,qty:1,sel:[]};
+$('mbody').innerHTML=`<div class="row"><b style="font-size:18px">${it.e} ${it.n}</b><button class="chip" onclick="closeM()">✕</button></div><p class="mut">${it.d}</p>
+${it.o.map((o,k)=>`<label style="display:flex;gap:8px;align-items:center;font-weight:500"><input type="checkbox" style="width:auto;margin:0" onchange="tog(${k},this.checked)"> ${o[0]} ${o[1]?`<span class="price">+${$$(o[1])}</span>`:''}</label>`).join('')}
+<label>Special instructions</label><input id="mn" placeholder="Optional">
+<div class="row"><div><button class="chip" onclick="qty(-1)">−</button> <b id="mq">1</b> <button class="chip" onclick="qty(1)">+</button></div><button class="btn" id="madd" onclick="addCart()"></button></div>`;
+$('modal').classList.add('on');mprice()}
+const closeM=()=>$('modal').classList.remove('on');
+function tog(k,on){const s=_c.sel;on?s.push(k):s.splice(s.indexOf(k),1);mprice()}
+function qty(d){_c.qty=Math.max(1,_c.qty+d);$('mq').textContent=_c.qty;mprice()}
+function unit(){const it=R(_c.rid).items[_c.i];return it.p+_c.sel.reduce((a,k)=>a+it.o[k][1],0)}
+function mprice(){$('madd').textContent='Add · '+$$(unit()*_c.qty)}
+function addCart(){const r=R(_c.rid),it=r.items[_c.i];
+if(S.cart.length&&S.rid!==r.id){if(!confirm('Your cart has items from another restaurant. Clear it and start a new order?'))return;S.cart=[]}
+S.rid=r.id;S.cart.push({n:it.n,price:unit(),qty:_c.qty,opts:_c.sel.map(k=>it.o[k][0]),note:$('mn').value.trim()});save();closeM();render()}
+function rm(i){S.cart.splice(i,1);if(!S.cart.length)S.rid=null;save();render()}
+
+function placeOrder(){const r=R(S.rid),g=id=>$(id).value.trim();
+const sub=cartSub();let e='';
+if(!g('cn'))e='Please enter your name.';else if(!g('cp'))e='Please enter your phone number.';else if(!g('cl'))e='Please enter a delivery location.';else if(sub<r.min)e='Minimum order is '+$$(r.min)+'.';
+if(e){$('err').textContent=e;return}
+const o={id:S.n,num:'ABF-'+(S.n++),rid:r.id,name:g('cn'),phone:g('cp'),beach:$('cb').value,loc:g('cl')+(g('cu')?' — '+g('cu'):''),sub,total:sub+r.fee,items:S.cart.map(l=>l.qty+'× '+esc(l.n)).join(', '),status:'Order received',paid:false};
+S.orders.push(o);S.cur=o;S.cart=[];S.rid=null;save();go('track')}
+function adv(id){const o=S.orders.find(x=>x.id===id),i=FLOW.indexOf(o.status);if(i<FLOW.length-1)o.status=FLOW[i+1];render()}
+render();
+</script>
+</body>
+</html>
